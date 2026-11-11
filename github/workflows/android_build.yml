@@ -1,0 +1,44 @@
+name: MyChat Android CI/CD Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    name: Build MyChat APK & Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository source code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Set up JDK 17 (matching compileOptions targetCompatibility version 17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      # 3. Grant execute permission for Gradle wrapper
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 4. Run unit tests
+      - name: Run Unit Tests
+        run: ./app/gradlew testDebugUnitTest
+
+      # 5. Build Debug APK (includes Room, SQLCipher, Google Tink, and WebRTC integration)
+      - name: Build Debug APK
+        run: ./app/gradlew assembleDebug
+
+      # 6. Upload compiled APK artifacts so you can download them directly from GitHub Actions
+      - name: Upload Debug APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyChat-Debug-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
