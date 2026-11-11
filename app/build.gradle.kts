@@ -80,6 +80,10 @@ dependencies {
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
 // Path: app/build.gradle.kts (Add inside dependencies block)
+implementation("org.webrtc:google-webrtc:1.0.32006")
+
+
+// Path: app/build.gradle.kts (Add inside dependencies block)
 implementation("com.google.crypto.tink:tink-android:1.12.0")
 
     // Testing
