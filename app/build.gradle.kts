@@ -86,6 +86,23 @@ implementation("org.webrtc:google-webrtc:1.0.32006")
 // Path: app/build.gradle.kts (Add inside dependencies block)
 implementation("com.google.crypto.tink:tink-android:1.12.0")
 
+    // ZXing for QR Code generation
+    implementation("com.google.zxing:core:3.5.3")
+
+    // Google ML Kit Barcode Scanning
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
+
+    // CameraX dependencies
+    val cameraxVersion = "1.3.1"
+    implementation("androidx.camera:camera-core:$cameraxVersion")
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+    implementation("androidx.camera:camera-view:$cameraxVersion")
+
+    // Accompanist Permissions for Compose camera permission handling
+    implementation("com.google.accompanist:accompanist-permissions:0.34.0")
+
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
