@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.securemessenger"
+    namespace = "com.example.MyChat"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.securemessenger"
+        applicationId = "com.example.MyChat"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
