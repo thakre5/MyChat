@@ -79,6 +79,9 @@ dependencies {
     // AndroidX Security (Hardware-backed Keystore Encryption)
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
+// Path: app/build.gradle.kts (Add inside dependencies block)
+implementation("com.google.crypto.tink:tink-android:1.12.0")
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
